@@ -1,19 +1,16 @@
-from notifi import NotifyMe
-import pickle
-import random
-import time
+from plyer import notification
+import pickle, random, time
 
-Formulas = []
-
-with open("E:\\Python\\codes\\Learnig\\config.bin","rb+") as f:
-    a = pickle.load(f)
-    Formulas, a = a, Formulas
-
+Formulas = None
 Time = None
 
-with open("E:\\Python\\codes\\Learnig\\config.txt",'r') as f:
-    a = f.readline()
-    Time,a = a,Time
+def NotifyMe(Message):
+    notification.notify(
+        title="Time to learn!",
+        message = Message,
+        timeout = 5,
+        app_icon = "E:\\Python\\codes\\Learnig\\book1080.ico"
+    )
 
 def WaitTime(Time_interval):
     Min = 60/int(Time_interval)
@@ -21,8 +18,11 @@ def WaitTime(Time_interval):
 
     return int(sleeptime)
 
+with open("E:\\Python\\codes\\Learnig\\config.bin","rb+") as f:
+    a = pickle.load(f)
+    Formulas = a["Formulas"] 
+    Time = a["Time"] 
 
 while True:
     NotifyMe(random.choice(Formulas))
     time.sleep(WaitTime(Time))
-
