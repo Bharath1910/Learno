@@ -9,7 +9,7 @@ def NotifyMe(Message):
         title="Time to learn!",
         message = Message,
         timeout = 5,
-        app_icon = "E:\\Python\\codes\\Learnig\\book1080.ico"
+        app_icon = "book1080.ico"
     )
 
 def WaitTime(Time_interval):
@@ -18,7 +18,7 @@ def WaitTime(Time_interval):
 
     return int(sleeptime)
 
-with open("E:\\Python\\codes\\Learnig\\config.bin","rb+") as f:
+with open("config.bin","rb+") as f:
     a = pickle.load(f)
     Formulas = a["Formulas"] 
     Time = a["Time"] 
