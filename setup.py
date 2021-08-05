@@ -36,7 +36,7 @@ def DinoBino(Formulas):
         "Time": Time
     }
 
-    with open("E:\Python\codes\Learnig\config.bin","wb") as f:
+    with open("config.bin","wb") as f:
         pickle.dump(dic1,f)
     
     print(f"Loaded {len(Formulas)} Formulas and you will get {Time} Notifiations per hour, Happy learning.")
